@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Showing Recipe Step for <%= Product.find(params[:product_id]).name %></h1>
+
+<p>
+  <strong>Sequence:</strong>
+  <%= @recipes.sequence %>
+</p>
+
+<p>
+  <strong>Time before meal:</strong>
+  <%= @recipes.time_before_meal %>
+</p>
+
+<p>
+  <strong>Instructions:</strong>
+  <%= @recipes.instructions %>
+</p>
+
+<p>
+
+  <%= image_tag @recipes.image, height: "300" %>
+</p>
+
+<%= link_to 'Edit', edit_product_recipe_path(:product_id => @recipes.product_id, :id => @recipes.id), :class => 'btn btn-primary' %> |
+<%= link_to 'Back', product_recipes_path(:product_id => @recipes.product) %>

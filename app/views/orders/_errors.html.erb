@@ -1,0 +1,16 @@
+<% if @order_form.has_errors? %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h4 class="panel-title">We have found some problems with your data. Please review them.</h4>
+    </div>
+    <div class="panel-body">
+      <% @order_form.user.errors.full_messages.each do |error| %>
+        <p>
+          <strong>User:</strong>
+          <%= error %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+

@@ -1,0 +1,27 @@
+<h1>Recipe Steps for Order #<%= @order.id %></h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Time before meal(Hrs)</th>
+      <th>Category</th>
+      <th>Product</th>
+      <th>Instruction</th>
+      <th>Image</th>
+    </tr>
+  </thead>  
+
+  <% @result.each do |policy| %>
+      <tr>
+          <% policy.first(5).each do |name, value| %>
+              <% if name == "Image" %>
+                <td><%= image_tag Recipe.find(value).image.thumb %></td>
+              <% else %>
+                <td><%= value %></td>
+              <% end %>
+          <%end%>
+      </tr>
+  <%end%> 
+</table>
+
+<%= link_to "Back", orders_path %>

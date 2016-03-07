@@ -1,0 +1,7 @@
+<h1>Editing Recipe Step for <%= Product.find(params[:product_id]).name %></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', [@recipes.product, @recipes] %> |
+
+<%= link_to 'Back', product_recipes_path(:product_id => @recipes.product) %> 

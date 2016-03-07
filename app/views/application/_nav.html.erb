@@ -1,0 +1,62 @@
+<nav class="navbar navbar-default">
+  <div class="nav navbar-nav">
+    <%= image_tag("Imthechef_logo.jpg", width: '400', height: '120', alt: 'Site Logo', class: "logo") %>
+  </div>
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- <a class="navbar-brand" href="#">Im The Chef</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><%= link_to "Products", products_path %></li>
+        <li class="dropdown">
+        <%= link_to "#", data: { toggle: "dropdown" } do %>
+          Categories
+          <span class="caret"></span>
+        <%- end %>
+        <ul class="dropdown-menu">
+          <% @categories.each do |category| %>
+            <li><%= link_to category.name, category %></li>
+          <% end %>
+        </ul>
+      </li>
+      <% if user_signed_in? %>
+        <li class="active"><%= link_to "Orders", orders_path %></li>
+      <% end %>
+      <% if current_user && current_user.admin? %>
+        <li class="active"><%= link_to "Ingredients", ingredients_path %></li>
+        <li class="dropdown">
+          <%= link_to "#", data: { toggle: "dropdown" } do %>
+            Foodtypes
+            <span class="caret"></span>
+          <%- end %>
+          <ul class="dropdown-menu">
+            <% @foodtypes.each do |foodtype| %>
+              <li><%= link_to foodtype.name, foodtype %></li>
+            <% end %>
+          </ul>
+      </ul>
+      <% end %>
+      <p class="navbar-text navbar-right">
+        <% if user_signed_in? %>
+          Logged in as <%= current_user.name %>.
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "navbar-link" %>
+        <% end %>
+      </p>
+
+      <%= render "cart" %>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

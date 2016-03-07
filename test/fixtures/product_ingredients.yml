@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 
+  ingredient_id: 
+  metric_qty: 9.99
+  imperial_qty: 9.99
+  metric_pack_size: 9.99
+  imperial_pack_size: 9.99
+  metric_unit: MyString
+  imperial_unit: MyString
+
+two:
+  product_id: 
+  ingredient_id: 
+  metric_qty: 9.99
+  imperial_qty: 9.99
+  metric_pack_size: 9.99
+  imperial_pack_size: 9.99
+  metric_unit: MyString
+  imperial_unit: MyString

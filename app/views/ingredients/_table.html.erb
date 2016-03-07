@@ -1,0 +1,36 @@
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Pack Size Metric</th>
+      <th>Metric unit</th>
+      <th>Pack Size Imperial</th>
+      <th>Imperial unit</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  
+    <% ingredients.each do |ingredient| %>
+      <tr>
+        <td><%= link_to ingredient.name, edit_ingredient_path(ingredient) %></td>
+        <td>
+          <%= Foodtype.find(ingredient.foodtype_id).name%>
+        </td>
+        <td align = "right" width = "100"><%= ingredient.metric_pack_size %></td>
+        <td><%= ingredient.metric_unit %></td>
+        <td align = "right" width = "100"><%= ingredient.imperial_pack_size %></td>
+        <td><%= ingredient.imperial_unit %></td>
+
+        
+      </tr>
+    <% end %>
+  
+</table>
+
+<br>
+
+

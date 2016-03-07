@@ -1,0 +1,9 @@
+<h1>
+  <%= @category.name %>
+</h1>
+
+<%= render "products/table", products: @products %>
+
+
+<%= link_to 'Edit Category', edit_category_path(@category) %> |
+<%= link_to 'List Categories', categories_path %>

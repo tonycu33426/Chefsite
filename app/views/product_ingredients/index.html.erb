@@ -1,0 +1,50 @@
+<h1>Listing Ingredients for <%= Product.find(params[:product_id]).name %></h1>
+
+
+<table class="table table-hover">
+  <tr>
+    <th>Ingredient</th>
+    <th>Type</th>
+    <th>Metric Qty</th>
+    <th>Metric Pack Size</th>
+    <th>Metric Unit</th>
+    <th>Imperial Qty</th>
+    <th>Imperial Pack Size</th>
+    <th>Imperial Unit</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+<% @product_ingredients.each do |pi| %>
+  <tr>
+    <td><%= Ingredient.find(pi.ingredient_id).name %></td>
+    <td><%= Foodtype.find(Ingredient.find(pi.ingredient_id).foodtype_id).name %></td>
+    <td><%= pi.metric_qty %></td>
+    <td><%= pi.metric_pack_size %></td>
+    <td><%= pi.metric_unit %></td>
+    <td><%= pi.imperial_qty %></td>
+    <td><%= pi.imperial_pack_size %></td>
+    <td><%= pi.imperial_unit %></td>
+    <td>
+        <%= link_to 'Show', product_ingredients_show_path(:product_id => pi.product_id, :id => pi.id), :class => 'btn btn-primary' %>
+    </td>
+    <td>
+        <%= link_to 'Edit', product_ingredients_edit_path(:product_id => pi.product_id, :id => pi.id), :class => 'btn btn-primary' %>
+    </td>
+    <td>
+        <%= button_to('Destroy',product_product_ingredient_path(pi.product_id,pi.id), :method => 'delete', :class => 'btn btn-primary', :data => { :confirm => 'Are you sure?' } ) %>
+    </td>
+    
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ingredient', product_ingredients_new_path(:product_id => params[:product_id]) %>
+|
+<%= link_to 'Back', product_path(:id => params[:product_id]) %>
+
+
+ 

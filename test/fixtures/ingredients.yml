@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  number_of_people: 1
+  metric_unit: MyString
+  imperial_unit: MyString
+  caters_for_qty: 1
+
+two:
+  name: MyString
+  number_of_people: 1
+  metric_unit: MyString
+  imperial_unit: MyString
+  caters_for_qty: 1

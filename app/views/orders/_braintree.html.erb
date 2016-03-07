@@ -1,0 +1,8 @@
+<div id="payment-form"></div>
+      
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+<script>
+   braintree.setup("<%= @client_token %>", "dropin", {
+   	container: "payment-form"
+   });
+ </script>

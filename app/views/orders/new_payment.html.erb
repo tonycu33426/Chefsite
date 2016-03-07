@@ -1,0 +1,6 @@
+<<h1>Enter payment</h1>
+<%= render "data", order: @order %>
+<%= form_tag pay_order_path do %>
+  <%= render "braintree" %>
+  <%= submit_tag "Pay", class: "btn btn-primary" %>
+<% end %>

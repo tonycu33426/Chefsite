@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Recipe Steps for <%= Product.find(params[:product_id]).name %></h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Sequence</th>
+      <th>Time before meal</th>
+      <th>Instructions</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= recipe.sequence %></td>
+        <td><%= recipe.time_before_meal %></td>
+        <td><%= recipe.instructions %></td>
+        <td><%= image_tag recipe.image.thumb %></td>
+        <td>
+          <%= link_to 'Show', product_recipe_path(:product_id => recipe.product_id, :id => recipe.id), :class => 'btn btn-primary' %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_product_recipe_path(:product_id => recipe.product_id, :id => recipe.id), :class => 'btn btn-primary' %>
+        </td>
+        <td>
+          <%= button_to('Destroy',product_recipe_path(recipe.product_id,recipe.id), :method => 'delete', :class => 'btn btn-primary', :data => { :confirm => 'Are you sure?' } ) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recipe Step', new_product_recipe_path(:product_id => params[:product_id]) %>
+|
+<%= link_to 'Back', product_path(:id => params[:product_id]) %>

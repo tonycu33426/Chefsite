@@ -1,0 +1,41 @@
+<%= form_for(@ingredient) do |f| %>
+  <% if @ingredient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ingredient.errors.count, "error") %> prohibited this ingredient from being saved:</h2>
+
+      <ul>
+      <% @ingredient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :foodtype %><br>
+    <%= f.select :foodtype_id, Foodtype.all.map { |c| [ c.name, c.id ] } %>
+  </div>
+  <div class="field">
+    <%= f.label :pack_size_metric %><br>
+    <%= f.number_field :metric_pack_size %>
+  </div>
+  <div class="field">
+    <%= f.label :metric_unit %><br>
+    <%= f.text_field :metric_unit %>
+  </div>
+    <div class="field">
+    <%= f.label :pack_size_imperial %><br>
+    <%= f.number_field :imperial_pack_size %>
+  </div>
+  <div class="field">
+    <%= f.label :imperial_unit %><br>
+    <%= f.text_field :imperial_unit %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

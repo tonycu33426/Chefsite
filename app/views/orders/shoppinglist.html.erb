@@ -1,0 +1,22 @@
+<h1>Shopping List for Order #<%= @order.id %></h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Food Type</th>
+      <th>Ingredient</th>
+      <th>Quantity</th>
+      <th>Unit</th>
+    </tr>
+  </thead>  
+
+  <% @result.each do |policy| %>
+      <tr>
+          <% policy.first(4).each do |name, value| %>
+              <td><%= value %></td>
+          <%end%>
+      </tr>
+  <%end%> 
+</table>
+     
+<%= link_to "Back", orders_path %>

@@ -1,0 +1,51 @@
+<h1>Showing Ingredient for <%= Product.find(params[:product_id]).name %></h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ingredient:</strong>
+  <%= Ingredient.find(@product_ingredients.ingredient_id).name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= Foodtype.find(Ingredient.find(@product_ingredients.ingredient_id).foodtype_id).name %>
+</p>
+
+<p>
+  <strong>Metric Qty:</strong>
+  <%= @product_ingredients.metric_qty %>
+</p>
+
+<p>
+  <strong>Metric Pack Size:</strong>
+  <%= @product_ingredients.metric_pack_size %>
+</p>
+
+<p>
+  <strong>Metric Unit:</strong>
+  <%= @product_ingredients.metric_unit %>
+</p>
+
+<p>
+  <strong>Imperial Qty:</strong>
+  <%= @product_ingredients.imperial_qty %>
+</p>
+
+<p>
+  <strong>Imperial Pack Size:</strong>
+  <%= @product_ingredients.imperial_pack_size %>
+</p>
+
+<p>
+  <strong>Imperial Unit:</strong>
+  <%= @product_ingredients.imperial_unit %>
+</p>
+
+
+
+<!-- /posts/:post_id/comments/:id/edit -->
+
+<%= link_to 'Edit', product_ingredients_edit_path(:product_id => @product_ingredients.product_id, :id => @product_ingredients.id) %>
+<!-- /posts/:post_id/comments/ -->
+<%= link_to 'Back', product_ingredients_index_path(:product_id => @product_ingredients.product_id) %> 

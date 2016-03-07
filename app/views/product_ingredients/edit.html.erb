@@ -1,0 +1,8 @@
+<h1>Editing Ingredient for <%= Product.find(params[:product_id]).name %></h1>
+
+<%= render 'form' %>
+
+<!-- /posts/:post_id/comments/:id -->
+<%= link_to 'Show', [@product_ingredients.product, @product_ingredients] %> |
+<!-- /posts/:post_id/comments/ -->
+<%= link_to 'Back', product_product_ingredients_path(@product_ingredients.product) %>

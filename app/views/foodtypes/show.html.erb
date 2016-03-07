@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<h1> <%= @foodtype.name %> </h1>
+
+<%= render "ingredients/table", ingredients: @ingredients %>
+
+<%= link_to 'Edit', edit_foodtype_path(@foodtype) %> |
+<%= link_to 'List Food Types', foodtypes_path %>

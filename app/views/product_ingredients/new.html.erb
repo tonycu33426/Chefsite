@@ -1,0 +1,6 @@
+<h1>New Ingredient for <%= Product.find(params[:product_id]).name %></h1>
+
+<%= render 'form' %>
+
+<!-- /posts/:post_id/comments/ -->
+<%= link_to 'Back', product_ingredients_index_path(:product_id => params[:product_id]) %>
